@@ -127,7 +127,8 @@ def add_review(request, dealer_id):
         context["dealer"] = dealer
         # return render(request, 'djangoapp/add_review.html', context)
         print("Done 1", context)
-        return HttpResponse(context)
+        # return HttpResponse(context)
+        return render(request, 'djangoapp/add_review.html', context)
 
     if request.method == "POST":
         url = "https://us-south.functions.appdomain.cloud/api/v1/web/77623e3e-f0a9-4f78-8ee0-1436b05b6560/dealership-package/post-review"      
@@ -154,5 +155,5 @@ def add_review(request, dealer_id):
         json_payload["review"] = review
         response = post_request(url, json_payload)
         print("Done")
-        return HttpResponse(review)
-        # return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
+        # return HttpResponse(review)
+        return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
