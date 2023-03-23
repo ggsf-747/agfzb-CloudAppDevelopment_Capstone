@@ -43,6 +43,20 @@
                 </li>
               </ul>`
             </div>
+            {% if user.is_authenticated %}
+            <div class = "ml1">
+                <span> {{ user.first_name }}({{ user.username }}) </span>
+                <a href= "logout"> Log out </a>
+            </div>
+            {% else %}    
+            <form class = "form-inline ml-auto" action = "login", method="post">
+                {% csrf_token %}
+                <input class = "form-control" type="text" placeholder= "Username" name = "username1" required>
+                <input class = "form-control" type="password" placeholder= "Password" name = "password1" required>
+                <button class = "btn" type = "submit"> Login </button>
+                <a class="btn" href="registration"> Sign Up </a>
+            </form>
+            {% endif %}
           </div>
       </nav>
     <!--Add a dealer table here -->
