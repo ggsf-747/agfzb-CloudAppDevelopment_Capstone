@@ -104,12 +104,12 @@ class DealerReview:
         self.name = name
         self.purchase = purchase
         self.review = review
-        # self.purchase_date = ""
-        # self.car_make = ""
-        # self.car_model = ""
+        self.purchase_date = ""
+        self.car_make = ""
+        self.car_model = ""
         self.car_year = ""
-        # self.sentiment = ""
-        # self.id = ""
+        self.sentiment = ""
+        self.id = ""
 
     def __str__(self):
         return "Reviews: " + self.review 
